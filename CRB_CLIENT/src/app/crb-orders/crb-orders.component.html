@@ -1,0 +1,48 @@
+<body style="height:100vh;">
+  <div class="wrapper">
+    <main>
+      <div class="panel-container-vertical">
+        <div class="panel-top" style="display: flex; flex-direction: row">   
+            <div class="panel-left" style="display: flex; flex-direction: row">  
+              <crb-tree (nodeClicked)="getCRBOrdersDetails($event)" [treeDataSourceData]="crbTreeDataSourceData">
+              </crb-tree>
+            </div>
+            <div id="splitver" class="splitter"></div>
+            <div class="panel-right" style="display: flex; flex-direction: row">  
+              <div style="overflow: hidden; flex-grow: 1"> 
+                <ag-grid-angular style="width: 100%; height: 100%" class="ag-theme-balham"
+                  [gridOptions]="gridOptions"
+                  [columnDefs]="columnDefs"
+                  (gridReady)="onGridReady($event)"  
+                  (rowClicked)="getSelectedRowData($event)"                
+                  #ngxGrid>
+                </ag-grid-angular>   
+                <!--app-crb-grid id="grdcrbOrderMgr"                  
+                  [columnDefs]="columnDefs" 
+                  (gridReady)="onGridReady($event)"
+                  [gridOptions]="gridOptions"                  
+                  (rowClicked)="getSelectedRowData($event)" 
+                  (dataRowChanged)="dataRowChanged($event)">  
+                </app-crb-grid-->  
+              </div>           
+            </div>
+        </div>
+        <div id="splithzt" class="splitter-horizontal"></div>
+        <div class="panel-bottom">
+          <div style="overflow: hidden; flex-grow: 1"> 
+          <mat-tab-group>
+            <mat-tab label="Order Details">
+              <div style=" overflow: hidden; flex-grow: 1">    
+                <app-crb-grid id="grdcrbOrderMgr"
+                  [rowData]="dtlRowData"
+                  [columnDefs]="dtlColumnDefs">
+                </app-crb-grid>  
+              </div>           
+            </mat-tab>
+          </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>

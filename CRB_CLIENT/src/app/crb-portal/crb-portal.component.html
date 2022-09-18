@@ -1,0 +1,39 @@
+
+<h1><span>{{CRBTitle}}</span></h1>
+<body style="height:100vh;">
+  <div class="wrapper">
+    <div class="cols">
+        <div class="col" ontouchstart="this.classList.toggle('hover');" (click)="processCRBUsers()">
+          <div class="container">
+            <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
+              <div class="inner">
+                <p>CRB Users</p>
+                <span>User setup</span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <li>User Setup</li>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col" ontouchstart="this.classList.toggle('hover');" (click)="processCRBOrders()">
+          <div class="container">
+            <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
+              <div class="inner">
+                <p>CRB Orders</p>
+                <span>Order setup</span>
+              </div>
+            </div>
+            <div class="back">
+              <div class="inner">
+                <li>Orders</li>
+                <li>Order Details</li>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>  

@@ -1,0 +1,41 @@
+<body style="height:100vh;">  
+  <nav class="nav__cont">
+    <div class="nav-left">
+    <ul class="nav">
+      <li class="nav__items">    
+        <div>
+          <img src="..\assets\images\vendors.png" width="30" height="30"/>        
+          <a (click)="getDataFromCRBService(0,100);">Users</a>
+        </div>    
+      </li>
+    </ul>
+    </div>
+  </nav>  
+  <div class="wrapper">
+    <main>
+      <div class="panel-container-vertical">
+        <div class="panel-top" style="display: flex; flex-direction: row">   
+          <div style="padding-left:40px;overflow: hidden; flex-grow: 1">
+            <app-crb-grid [rowData]="rowData" [columnDefs]="columnDefs" (gridReady)="onGridReady($event)"
+              (firstDataRendered)="onFirstDataRendered($event)" (rowClicked)="getSelectedRowData($event)" 
+              (dataRowChanged)="dataRowChanged($event)">
+            </app-crb-grid>                    
+          </div>      
+        </div>
+        <div id="splitvar" class="splitter-horizontal">
+        </div>
+        <div class="panel-bottom" style="height:95%;" >
+          <div id="jsonformdiv" class="container" style="height: 95%; overflow: hidden; flex-grow: 1">     
+            <lib-json-schema-form id="libjsonform" [(value)]="formValue" [schema]="formSchema" [label]="formSchema.title" 
+                (errorChange)="formerror=$event" ></lib-json-schema-form>   
+                <div class="btn-holder">          
+                  <button mat-raised-button color="primary" class="btn-spacing" id="btnAddNew" >Add</button>   
+                  <button mat-raised-button color="primary" class="btn-spacing" id="btnDeactivate" >Deactivate</button>   
+                  <button mat-raised-button color="primary" class="btn-spacing" id="btnSubmit" >Save</button>                  
+                </div>                
+          </div> 
+        </div>
+      </div>
+    </main>
+  </div>
+</body>

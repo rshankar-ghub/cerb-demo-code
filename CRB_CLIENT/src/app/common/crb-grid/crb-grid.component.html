@@ -1,0 +1,51 @@
+<div align="right">
+    <div *ngIf="btntoolbar">
+        <button mat-raised-button color="primary" class="btn-spacing" (click)="onAddNewRec($event)">
+            <mat-icon>add_circle</mat-icon><span>Add</span>
+        </button>
+        <button mat-raised-button color="primary" class="btn-spacing" (click)="onEditRec($event)">
+            <mat-icon>edit</mat-icon><span>Edit</span>
+        </button>
+        <button mat-raised-button color="primary" class="btn-spacing" (click)="onDeleteRec($event)">
+            <mat-icon>delete</mat-icon><span>Delete</span>
+        </button>
+    </div>
+    <div *ngIf="dragtoolbar">
+        <button mat-raised-button color="primary" class="btn-spacing" (click)="onMoveUpRec($event)">
+            <mat-icon>keyboard_arrow_up</mat-icon><span>Up</span>
+        </button>
+        <button mat-raised-button color="primary" class="btn-spacing" (click)="onMoveDownRec($event)">
+            <mat-icon>keyboard_arrow_down</mat-icon><span>Down</span>
+        </button>
+    </div>
+</div>
+
+<div style="flex-grow: 1; height:250px;">       
+    <ag-grid-angular
+        style="width:100%;height:100%;"
+        class="ag-theme-alpine"
+        id="gridCommon"        
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"     
+        domLayout="autoHeight"                                       
+        alwaysShowVerticalScroll="true"
+        suppressHorizontalScroll="false"
+        rowSelection='single'
+        [gridOptions]="gridOptions" 
+        (gridReady)="onGridReady($event)"
+        (firstDataRendered)="onFirstDataRendered($event)"                
+        (rowClicked)="onRowClicked($event)" 
+        (rowDataChanged)="onDataRowChanged($event)"
+        [enableSorting]="true" 
+        [animateRows]="true"
+        [paginationPageSize]="paginationPageSize" 
+        [pagination]="true" 
+        [enableRangeSelection]="false" 
+        [enableFilter]="true"
+        [suppressClickEdit]="true"
+        (rowEditingStopped)="onRowEditingStopped($event)"
+        (cellValueChanged)="onCellValueChanged($event)"
+        #ngxGrid >
+    </ag-grid-angular>              
+</div>      
+
